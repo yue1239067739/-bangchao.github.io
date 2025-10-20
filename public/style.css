@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.chat-container {
+    width: 375px;
+    height: 812px;
+    background-color: #162447;
+    border: 2px solid #0f3460;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(227, 2, 127, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative; /* Add this for positioning the pseudo-element */
+}
+
+.chat-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('newback.jpg');
+    background-size: cover;
+    background-position: center 0%;
+    opacity: 1; /* Adjust opacity to make text readable */
+    z-index: 0;
+}
+
+.chat-box {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #e94560 #162447;
+}
+
+.chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: #162447;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background-color: #e94560;
+    border-radius: 10px;
+    border: 2px solid #162447;
+}
+
+.mode-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #D1D3D9; /* iPhone keyboard light grey */
+    border-top: 1px solid #BDBDC2;
+    position: relative;
+    z-index: 1;
+}
+
+.mode-btn {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: normal;
+    transition: transform 0.1s, box-shadow 0.1s;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    text-shadow: none;
+}
+
+.mode-btn:hover {
+    background-color: #F5F5F7;
+}
+
+.mode-btn:active, .mode-btn.active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #E5E5EA;
+    color: #000000;
+}
+
+.input-container {
+    display: flex;
+    padding: 20px;
+    background-color: #D1D3D9; /* iPhone keyboard light grey */
+    border-top: 1px solid #BDBDC2;
+    position: relative;
+    z-index: 1;
+}
+
+#user-input {
+    flex-grow: 1;
+    background-color: #FFFFFF;
+    color: #000000;
+    border: 1px solid #BDBDC2;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#user-input::placeholder {
+    color: #8A8A8E;
+}
+
+#send-btn {
+    background: linear-gradient(45deg, #007AFF, #00C6FF);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 122, 255, 0.5);
+    writing-mode: horizontal-tb; /* Ensure horizontal text */
+}
+
+#send-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 122, 255, 0.8);
+}
+
+.message {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-message {
+    align-items: flex-end;
+}
+
+.bot-message {
+    align-items: flex-start;
+}
+
+.message-bubble {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 25px;
+    max-width: 85%;
+    line-height: 1.4;
+    transition: all 0.3s ease;
+}
+
+.user-message .message-bubble {
+    background: linear-gradient(45deg, #1f4068, #162447);
+    color: #e0e0e0;
+    border: 1px solid #e94560;
+    border-top-right-radius: 5px;
+}
+
+.bot-message .message-bubble {
+    background: linear-gradient(45deg, #e94560, #ff7a8a);
+    color: #fff;
+    border-top-left-radius: 5px;
+}
